@@ -136,9 +136,12 @@ function solve(edoac::ExactDiagonalizationOperatorAutoCorrelation, t::Real)
     c_2 = edoac.c_2
 
     c_1 .= iscoef .* exp.(-1im*t .* eigenvalues)
-    c_2 .= isAcoef .* exp.(-1im*t .* eigenvalues)
+    mul!(c_2, Acoef, c_1)
+    #c_2 .= isAcoef .* exp.(-1im*t .* eigenvalues)
+    c_1 .= isAcoef .* exp.(1im*t .* eigenvalues)
 
-    value = c_2' * Acoef * c_1
+    #value = c_2' * Acoef * c_1
+    value = sum(c_1 .* c_2)
     return value
 end
 
@@ -174,6 +177,5 @@ function oacmean(A::AbstractMatrix, initialstate::Vector, eigenstates::Matrix;
 
     return value
 end
-
 
 end
