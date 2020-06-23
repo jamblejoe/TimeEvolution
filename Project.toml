@@ -1,0 +1,8 @@
+name = "TimeEvolution"
+uuid = "2af21ad9-4e08-4117-9184-137edb374d74"
+authors = ["Goran Nakerst <go.nakerst@web.de>"]
+version = "0.1.0"
+
+[deps]
+DiffEqBase = "2b5f629d-d688-5b77-993f-72d75c75574e"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
